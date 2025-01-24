@@ -27,7 +27,7 @@ CREATE TABLE statewise_results (
 	TrailingCandidate VARCHAR(50),
 	Margin INT,
 	Status VARCHAR(50),
-	StateID	TEXT,
+	StateID TEXT,
 	Statename VARCHAR(50)
 );
 ```
@@ -36,7 +36,7 @@ CREATE TABLE statewise_results (
 DROP TABLE IF EXISTS partywise_results;
 CREATE TABLE partywise_results (
 	Party TEXT,
-	Won	INT,
+	Won INT,
 	PartyID INT
 );
 ```
@@ -272,8 +272,10 @@ SET party_alliance = 'OTHER'
 WHERE party_alliance IS NULL;
 
 SELECT * FROM partywise_results;
+```
 
---Which party alliance (NDA, I.N.D.I.A, or OTHER) won the most seats across all states
+8. **Which party alliance (NDA, I.N.D.I.A, or OTHER) won the most seats across all states**
+```sql
 SELECT party_alliance,
 	SUM(won) AS total_seats
 FROM partywise_results
@@ -281,7 +283,7 @@ GROUP BY 1
 ORDER BY 2 DESC;
 ```
 
-8. **Winning candidate's name, their party name, total votes, and the margin of victory for a specific state and constituency**
+9. **Winning candidate's name, their party name, total votes, and the margin of victory for a specific state and constituency**
 ```sql
 SELECT cr.winningcandidate,
 	pr.party,
@@ -300,7 +302,7 @@ ON sr.stateid = s.stateid
 WHERE constituency ILIKE '%delhi%';
 ```
 
-9. **What is the distribution of EVM votes versus postal votes for candidates in a specific constituency**
+10. **What is the distribution of EVM votes versus postal votes for candidates in a specific constituency**
 ```sql
 SELECT cd.evmvotes,
 	cd.postalvotes,
@@ -313,7 +315,7 @@ ON cr.constituencyid = cd.constituencyid
 WHERE cr.constituencyname ILIKE '%Amethi%';
 ```
 
-10. **Which candidate received the highest number of EVM votes in each constituency (Top 10)**
+11. **Which candidate received the highest number of EVM votes in each constituency (Top 10)**
 ```sql
 SELECT
     cr.constituencyname,
