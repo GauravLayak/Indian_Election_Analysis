@@ -62,7 +62,7 @@ CREATE TABLE constituencywise_details (
 	Candidate VARCHAR(100),
 	Party VARCHAR(100),
 	EVMVotes INT,
-	PostalVotes	INT,
+	PostalVotes INT,
 	TotalVotes INT,
 	PercentofVotes NUMERIC,
 	ConstituencyID TEXT
@@ -336,9 +336,9 @@ LIMIT 10;
 - Creation of a relational database schema for election data.
 - Analysis-ready data structures for state-wise, constituency-level, and party-wise metrics.
 - SQL queries for:
-      1. Identifying leading candidates and vote margins.
-      2. Evaluating party performance across states.
-      3. Aggregating state-wise results for comprehensive reporting.
+   1. Identifying leading candidates and vote margins.
+   2. Evaluating party performance across states.
+   3. Aggregating state-wise results for comprehensive reporting.
 
 
 ## Conclusion
